@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1115"/>
+      <stop offset="55%" stop-color="#171226"/>
+      <stop offset="100%" stop-color="#1f1733"/>
+    </linearGradient>
+    <linearGradient id="accentFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9b8cff"/>
+      <stop offset="100%" stop-color="#6a5ae0"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c6bff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#7c6bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff7ab8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#ff7ab8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="40"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="55"/></filter>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#232032"/>
+      <stop offset="100%" stop-color="#191726"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <circle cx="190" cy="80" r="220" fill="url(#glowA)" filter="url(#blur1)"/>
+  <circle cx="1060" cy="340" r="260" fill="url(#glowB)" filter="url(#blur2)"/>
+
+  <text x="80" y="165" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" fill="#f3f1fb">watermark-remover</text>
+  <text x="80" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#b9b4cf">Erase the AI-badge overlay from generated images &#8212; 100% client-side</text>
+
+  <g transform="translate(80,240)" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#8f8aa8">
+    <circle cx="6" cy="-5" r="4" fill="#7c6bff"/>
+    <text x="20" y="0">React + Vite</text>
+    <circle cx="146" cy="-5" r="4" fill="#7c6bff"/>
+    <text x="160" y="0">Express</text>
+    <circle cx="270" cy="-5" r="4" fill="#7c6bff"/>
+    <text x="284" y="0">Per-IP rate limiting</text>
+    <circle cx="470" cy="-5" r="4" fill="#7c6bff"/>
+    <text x="484" y="0">MIT licensed</text>
+  </g>
+
+  <!-- Photo card with watermark badge struck out -->
+  <g transform="translate(900,110)">
+    <rect x="0" y="0" width="220" height="170" rx="18" fill="url(#cardGrad)" stroke="#36314a" stroke-width="1.5"/>
+    <circle cx="60" cy="58" r="22" fill="#4a4568"/>
+    <path d="M18 128 L72 78 L104 104 L140 64 L202 128 Z" fill="#574f78"/>
+    <rect x="0" y="0" width="220" height="170" rx="18" fill="none" stroke="#45405f" stroke-width="1"/>
+
+    <!-- watermark badge, struck through -->
+    <g transform="translate(150,14)">
+      <rect x="0" y="0" width="56" height="26" rx="8" fill="url(#accentFill)"/>
+      <text x="28" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">AI</text>
+      <line x1="-6" y1="32" x2="62" y2="-6" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round"/>
+      <line x1="-6" y1="32" x2="62" y2="-6" stroke="#1a1626" stroke-width="7" stroke-linecap="round" opacity="0" />
+    </g>
+  </g>
+</svg>
