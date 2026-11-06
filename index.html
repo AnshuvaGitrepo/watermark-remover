@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini Watermark Remover</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <h1>Gemini Watermark Remover</h1>
+      <p class="sub">
+        Removes the small Gemini/AI badge that Google's Gemini &amp; Imagen models
+        stamp in a corner of generated images &mdash; runs 100% in your browser,
+        nothing is uploaded anywhere.
+      </p>
+      <p class="note">
+        Note: this inverts the known, fixed visual badge overlay. It does not
+        strip SynthID's invisible statistical watermark, which isn't removable
+        this way.
+      </p>
+    </header>
+
+    <main class="panel">
+      <section class="col col-input">
+        <h2>1. Select Image</h2>
+        <div id="dropZone" class="drop-zone">
+          <p><strong>Click or Drag &amp; Drop Image</strong></p>
+          <p class="hint">Supports PNG, JPG, WebP, GIF</p>
+          <input id="imageInput" type="file" accept="image/*" hidden />
+        </div>
+
+        <h2>2. Settings</h2>
+        <label class="row">
+          <input id="adaptiveMode" type="checkbox" />
+          Enable Adaptive Detection Mode
+        </label>
+        <p class="hint">Automatically matches subtle alpha channels and custom watermark alignments.</p>
+
+        <label class="row">
+          Export Format
+          <select id="exportFormat">
+            <option value="image/png">PNG (Original Lossless Quality)</option>
+            <option value="image/jpeg">JPEG (High Quality)</option>
+            <option value="image/webp">WebP (Compressed)</option>
+          </select>
+        </label>
+
+        <div class="actions">
+          <button id="downloadBtn" disabled>Download Clean Image</button>
+          <button id="resetBtn" class="secondary">Reset / Choose New Image</button>
+        </div>
+      </section>
+
+      <section class="col col-preview">
+        <h2>Image Preview</h2>
+        <div class="view-toggle">
+          <button id="btnViewClean" class="active">Watermark Removed</button>
+          <button id="btnViewOriginal">Original</button>
+        </div>
+
+        <div id="previewContainer" class="preview-box">
+          <div id="loadingSpinner" class="spinner d-none"></div>
+          <p id="placeholderText" class="placeholder">No Image Selected</p>
+          <img id="previewImg" class="d-none" alt="Preview" />
+        </div>
+
+        <div id="statusAlert" class="status d-none">
+          <span id="statusText"></span>
+          <span id="timingText" class="timing"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Your IP: <strong id="footerIp">detecting&hellip;</strong></span>
+      <span class="sep">&middot;</span>
+      <span>Removals left today: <strong id="footerRemaining">--</strong> / <strong id="footerLimit">10</strong></span>
+      <span class="sep">&middot;</span>
+      <span class="hint">1 job at a time per IP</span>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
