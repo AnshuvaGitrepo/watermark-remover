@@ -73,6 +73,28 @@ npm run build     # -> dist/
 npm start          # single process: serves dist/ + the API on $PORT (default 3001)
 ```
 
+### Offline / standalone use
+
+Don't want to run a server at all? The `standalone/` folder is a self-contained copy
+of the app that runs straight from disk:
+
+1. Download or clone the repo.
+2. Open `standalone/index.html` in your browser (double-click it; `file://` works).
+
+No `npm install`, no Node, no internet connection needed. It has the same features as
+the web app (adaptive detection, before/after preview, PNG/JPEG/WebP export, 25MB limit),
+minus the server parts: there is no daily quota and no live IP/quota footer. As in the
+web app, images never leave your browser.
+
+It works from `file://` because the app code and the `@pilio/gemini-watermark-remover`
+engine are bundled into one classic script, `standalone/app.bundle.js` (browsers refuse
+ES module imports under `file://`). The source is `standalone-src/main.js`; after
+changing it, rebuild the bundle:
+
+```bash
+npx vite build --config vite.standalone.config.js
+```
+
 ### Environment variables
 
 | Variable      | Default | Purpose                                                                 |
