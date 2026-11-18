@@ -116,5 +116,10 @@ requests.
 
 ## License
 
-[MIT](LICENSE) &mdash; see the license file for details. Built on the MIT-licensed
+[MIT](LICENSE) © 2026 AnshuvaGitrepo. Built on the MIT-licensed
 [`@pilio/gemini-watermark-remover`](https://www.npmjs.com/package/@pilio/gemini-watermark-remover) engine.
+
+<p align="center">
+  <img src="docs/logo.svg" alt="watermark-remover logo" width="72"><br>
+  <sub>Prepared by Anshuva Samanta</sub>
+</p>
